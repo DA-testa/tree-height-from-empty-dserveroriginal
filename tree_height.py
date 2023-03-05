@@ -1,4 +1,4 @@
-# python3
+# python3 221RDB047
 
 import sys
 import threading
@@ -29,11 +29,12 @@ def compute_height(array, max_height):
 def main():
     # implement input form keyboard and from files
     userInput=input()
-    try:
+    
+    if userInput=="I":
         # input from keyboard
-        number = int(userInput)
+        number = int(input())
         array = list(map(int, input().split()))
-    except ValueError:
+    elif userInput=="F":
         # input from file
         with open(userInput) as file:
             number = int(file.readline())

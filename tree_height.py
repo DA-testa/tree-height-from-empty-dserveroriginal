@@ -7,17 +7,16 @@ import numpy
 def compute_height(array, max_height):
     # Write this function
     # Your code here
+    unchanged=array.copy()
     changed=False
-    for index in range(array.lengh):
+    for index in range(len(array)):
         if array[index]==-1:
             array[index]=-2
             if not changed:
                 max_height+=1
             changed=True
-        elif array[index]==-2:
-            pass
-        else:
-            array[index]=array[array[index]]
+        elif not array[index]==-2:
+            array[index]=unchanged[array[index]]
             if not changed:
                 max_height+=1
             changed=True
@@ -28,25 +27,31 @@ def compute_height(array, max_height):
 
 def main():
     # implement input form keyboard and from files
-    userInput=input()
+    userInput=input("")
     
-    if userInput=="I":
-        # input from keyboard
-        number = int(input())
-        array = list(map(int, input().split()))
-    elif userInput=="F":
+    if "i" in userInput:
+    #     # input from keyboard
+        number = input("")
+        array = list(map(int, input("").split()))
+    else:
         # input from file
-        with open(userInput) as file:
-            number = int(file.readline())
-            array = list(map(int, file.readline().split()))
-    
+        try:
+            with open("test/"+input()) as file:
+                number = int(file.readline())
+                array = list(map(int, file.readline().split()))
+        except:
+            print("File not found")
+            return
+    print(array)
+    print(compute_height(array, 1))
+     
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
-    pass
+    #print(compute_height([4, -1, 4, 1, 1],1))
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
@@ -54,6 +59,6 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()
 # print(numpy.array([1,2,3]))

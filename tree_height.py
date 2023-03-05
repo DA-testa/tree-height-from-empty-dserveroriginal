@@ -11,7 +11,7 @@ def node_height(array, index, height):
         return height
     elif counted[array[index]]==0:
         counted[array[index]]=node_height(array, array[index], height+1)
-    return counted[array[index]]+1
+    return counted[array[index]]
 
 def compute_height(array, max_height):
     # Write this function

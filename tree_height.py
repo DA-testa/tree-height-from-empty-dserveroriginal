@@ -13,7 +13,7 @@ def compute_height(array):
         height = 0
         while array[index] != -1:
             height += 1
-            array[index] = array[array[i]]
+            array[index] = array[array[index]]
         if height > max_height:
             max_height = height
     

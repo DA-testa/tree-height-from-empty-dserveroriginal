@@ -4,24 +4,19 @@ import sys
 import threading
 import numpy
 
-def compute_height(array, max_height):
+def compute_height(array):
     # Write this function
     # Your code here
-    unchanged=array.copy()
-    changed=False
-    for index in range(len(array)):
-        if array[index]==-1:
-            array[index]=-2
-            if not changed:
-                max_height+=1
-            changed=True
-        elif not array[index]==-2:
-            array[index]=unchanged[array[index]]
-            if not changed:
-                max_height+=1
-            changed=True
-    if changed:
-        return compute_height(array, max_height)
+    max_height = 0
+    copy=array.copy()
+    for i in range(len(array)):
+        height = 0
+        while array[i] != -1:
+            height += 1
+            array[i] = copy[array[i]]
+        if height > max_height:
+            max_height = height
+    
     return max_height
 
 
@@ -43,7 +38,7 @@ def main():
             print("File not found")
             return
     #print(array)
-    print(compute_height(array, 1))
+    print(compute_height(array))
      
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
@@ -59,6 +54,4 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-#if __name__ == "__main__":
-#    main()
 # print(numpy.array([1,2,3]))

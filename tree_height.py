@@ -29,10 +29,10 @@ def main():
     # implement input form keyboard and from files
     userInput=input("")
     
-    if "i" in userInput:
+    if "I" in userInput.capitalize():
     #     # input from keyboard
         number = input("")
-        array = list(map(int, input("").split()))
+        array = list(map(int, input("").split(" ")))
     else:
         # input from file
         try:
@@ -42,7 +42,7 @@ def main():
         except:
             print("File not found")
             return
-    #print(array)
+    print(array)
     print(compute_height(array, 1))
      
     # let user input file name to use, don't allow file names with letter a

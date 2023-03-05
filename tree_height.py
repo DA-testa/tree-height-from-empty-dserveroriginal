@@ -4,16 +4,40 @@ import sys
 import threading
 import numpy
 
-
-def compute_height(n, parents):
+def compute_height(array, max_height):
     # Write this function
-    max_height = 0
     # Your code here
+    changed=False
+    for index in range(array.lengh):
+        if array[index]==-1:
+            array[index]=-2
+            if not changed:
+                max_height+=1
+            changed=True
+        elif array[index]==-2:
+            pass
+        else:
+            array[index]=array[array[index]]
+            if not changed:
+                max_height+=1
+            changed=True
+    if changed:
+        return compute_height(array, max_height)
     return max_height
 
 
 def main():
     # implement input form keyboard and from files
+    userInput=input()
+    try:
+        # input from keyboard
+        number = int(userInput)
+        array = list(map(int, input().split()))
+    except ValueError:
+        # input from file
+        with open(userInput) as file:
+            number = int(file.readline())
+            array = list(map(int, file.readline().split()))
     
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
@@ -29,5 +53,6 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-main()
+if __name__ == "__main__":
+    main()
 # print(numpy.array([1,2,3]))

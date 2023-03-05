@@ -42,7 +42,7 @@ def main():
         except:
             print("File not found")
             return
-    print(array)
+    #print(array)
     print(compute_height(array, 1))
      
     # let user input file name to use, don't allow file names with letter a

@@ -4,16 +4,19 @@ import sys
 import threading
 import numpy
 
+counted=[]
+
 def node_height(array, index, height):
     if array[index]==-1:
         return height
-    else:
-        return node_height(array, array[index], height+1)
+    elif counted[array[index]]==0:
+        counted[array[index]]=node_height(array, array[index], height+1)
+    return counted[array[index]]+1
 
 def compute_height(array, max_height):
     # Write this function
     # Your code here
-    for i in range(len(array)):
+    for index in range(len(array)):
         height=node_height(array, i, 1)
         if height>max_height:
             max_height=height
@@ -38,6 +41,8 @@ def main():
             print("File not found")
             return
     #print(array)
+    for index in range(len(array)):
+        counted.append(0)
     print(compute_height(array, 0))
      
     # let user input file name to use, don't allow file names with letter a

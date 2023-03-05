@@ -13,11 +13,11 @@ def compute_height(array):
         height = 0
         while array[index] != -1:
             height += 1
-            array[index] = array[copy[index]]
+            array[index] = copy[array[index]]
         if height > max_height:
             max_height = height
     
-    return max_height
+    return max_height+1
 
 
 def main():
@@ -46,7 +46,7 @@ def main():
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
-    #print(compute_height([4, -1, 4, 1, 1],1))
+    #print(compute_height([4, -1, 4, 1, 1]))
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage

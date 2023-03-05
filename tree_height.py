@@ -9,11 +9,11 @@ def compute_height(array):
     # Your code here
     max_height = 0
     copy=array.copy()
-    for i in range(len(array)):
+    for index in range(len(array)):
         height = 0
-        while array[i] != -1:
+        while array[index] != -1:
             height += 1
-            array[i] = copy[array[i]]
+            array[index] = array[array[i]]
         if height > max_height:
             max_height = height
     

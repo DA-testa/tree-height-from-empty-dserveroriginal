@@ -17,7 +17,7 @@ def compute_height(array, max_height):
     # Write this function
     # Your code here
     for index in range(len(array)):
-        height=node_height(array, i, 1)
+        height=node_height(array, index, 1)
         if height>max_height:
             max_height=height
     return max_height

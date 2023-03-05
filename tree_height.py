@@ -8,10 +8,10 @@ counted=[]
 
 def node_height(array, index, height):
     if array[index]==-1:
-        counted[index]=height
-        return height
+        counted[index]=1
+        return 1
     elif counted[array[index]]==0:
-        counted[array[index]]=node_height(array, array[index], height+1)
+        counted[array[index]]=node_height(array, array[index], height)
     counted[index]=counted[array[index]]+1
     return counted[index]
 
